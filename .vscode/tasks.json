@@ -1,0 +1,49 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "if (Test-Path '${fileDirname}\\${fileBasenameNoExtension}.exe') { Remove-Item '${fileDirname}\\${fileBasenameNoExtension}.exe' };",
+                "if (Test-Path '${fileDirname}\\${fileBasename}.cpp') { g++ '${file}' -o '${fileDirname}\\${fileBasenameNoExtension}.exe' } else { gcc '${file}' -o '${fileDirname}\\${fileBasenameNoExtension}.exe' }"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
+        },
+        {
+            "label": "Run with input/output",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "& { Get-Content input.txt | ${fileDirname}\\${fileBasenameNoExtension}.exe > output.txt }"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        }
+    ]
+}

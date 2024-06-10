@@ -27,8 +27,14 @@ public:
 int main()
 {
     Solution sol;
-    vector<int> nums = {2, 7, 11, 15};
+    vector<int> nums;
     int target = 9;
+    for (int i = 0; i < 4; i++)
+    {
+        int input;
+        cin >> input;
+        nums.push_back(input);
+    }
     vector<int> ans = sol.twoSum(nums, target);
 
     for (auto i : ans)
