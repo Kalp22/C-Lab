@@ -4,11 +4,11 @@
         {
             "label": "Compile",
             "type": "shell",
-            "command": "powershell",
+            "command": "g++",
             "args": [
-                "-Command",
-                "if (Test-Path '${fileDirname}\\${fileBasenameNoExtension}.exe') { Remove-Item '${fileDirname}\\${fileBasenameNoExtension}.exe' };",
-                "if (Test-Path '${fileDirname}\\${fileBasename}.cpp') { g++ '${file}' -o '${fileDirname}\\${fileBasenameNoExtension}.exe' } else { gcc '${file}' -o '${fileDirname}\\${fileBasenameNoExtension}.exe' }"
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.exe"
             ],
             "group": {
                 "kind": "build",
@@ -33,7 +33,7 @@
             "command": "powershell",
             "args": [
                 "-Command",
-                "& { Get-Content input.txt | ${fileDirname}\\${fileBasenameNoExtension}.exe > output.txt }"
+                "& { Get-Content input.txt | ${fileDirname}/${fileBasenameNoExtension}.exe > output.txt }"
             ],
             "group": {
                 "kind": "test",
