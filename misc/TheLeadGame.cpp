@@ -1,14 +1,16 @@
-#include <stdio.h>
+#include <iostream>
 
-int main(void)
+using namespace std;
+
+int main()
 {
     int n, w, l = 0, i, lead = 0, m, key;
-    scanf("%d", &n);
+    cin >> n;
     m = 2 * n;
     int A[m], K[n];
     for (i = 0; i < m; i++)
     {
-        scanf("%d", &A[i]);
+        cin >> A[i];
     }
     for (i = 0; i < m; i++)
     {
@@ -34,6 +36,6 @@ int main(void)
     for (i = 0; i < n; i++)
         if (key < K[i])
             l = K[i];
-    printf("%d %d", w, l);
+    cout << w << " " << l << endl;
     return 0;
 }

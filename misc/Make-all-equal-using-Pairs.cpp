@@ -1,15 +1,19 @@
-#include <stdio.h>
+#include <iostream>
 
-int main(void)
+using namespace std;
+
+int main()
 {
 	int t, n, i, j, key;
-	scanf("%d", &t);
+	cin >> t;
 	while (t--)
 	{
-		scanf("%d", &n);
+		cin >> n;
 		int A[n];
 		for (i = 0; i < n; i++)
-			scanf("%d", &A[i]);
+		{
+			cin >> A[i];
+		}
 		for (i = 0; i < n; i++)
 		{
 			for (j = i + 1; j < n; j++)
