@@ -1,3 +1,4 @@
+// 3162. Find the Number of Good Pairs
 #include <bits/stdc++.h>
 
 using namespace std;
