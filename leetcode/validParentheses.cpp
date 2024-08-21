@@ -3,12 +3,15 @@
 
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    bool isValid(string s) {
+    bool isValid(string s)
+    {
         vector<char> stack;
 
-        for (auto i : s) {
+        for (auto i : s)
+        {
             if (i == '(' || i == '[' || i == '{')
                 stack.push_back(i);
             else if (!stack.empty() && ((i == ')' && stack.back() == '(') ||
@@ -23,7 +26,8 @@ public:
     }
 };
 
-int main() {
+int main()
+{
     Solution sol;
     string s;
     cin >> s;
